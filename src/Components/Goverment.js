@@ -149,7 +149,14 @@ function Goverment() {
                 panchyattaxes: e.target.value
             }))
             setTotaltax('Tax1,Tax2,Tax3,Tax7')
-        } else {
+        }else if (e.target.value === 'notax') {
+            setSecondrow('notax')
+            setPanchyatinfo(prevState => ({
+                ...prevState,
+                panchyattaxes: e.target.value
+            }))
+            setTotaltax('')
+         } else {
             setSecondrow('');
             setPanchyatinfo(prevState => ({
                 ...prevState,
@@ -270,7 +277,7 @@ function Goverment() {
                                 <div className="form-group">
                                     <label htmlFor="exampleInputPassword1">Property</label>
                                     <select className="form-control" name='municipalproperty' value={municipalinfo.municipalproperty} onChange={valueChangeForMunicipality} id="municipalproperty" >
-                                        <option></option>
+                                        <option>Select</option>
                                         <option>commercial</option>
                                         <option>personal</option>
 
@@ -304,7 +311,7 @@ function Goverment() {
                                     <div className="form-group">
                                         <label htmlFor="exampleInputPassword1">Land</label>
                                         <select onChange={valueChangeForPanchyat} value={panchyatinfo.panchyatland} className="form-control" id="panchyatland" name='panchyatland'>
-                                            <option></option>
+                                        <option>Select</option>
                                             <option>vastu</option>
                                             <option>agriculture</option>
 
@@ -321,9 +328,9 @@ function Goverment() {
                                     <div className="form-group">
                                         <label htmlFor="exampleInputPassword1">Taxes</label>
                                         <select className="form-control" onChange={valueChange3} name="panchyattaxes" value={panchyatinfo.panchyattaxes} id="panchyattaxes">
-                                            <option></option>
+                                        <option>Select</option>
                                             <option value="landpanchyat">land</option>
-                                            <option value="no">no taxes</option>
+                                            <option value="notax">no taxes</option>
                                         </select>
                                     </div>
                                 </div>
